@@ -1,0 +1,52 @@
+<div class="container-fluid">
+      <div class="row">
+        <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+          <div class="sidebar-sticky">
+            <table>
+            <tr> <td>
+             <label for="sel1"><font size="1">Category List</font></label>
+            <select class="form-control" id="category_select">  
+                  <option selected>  </option>
+                  {{#data}}
+                  <option value="{{category_id}}_{{link}}"><font size="1">{{category}}</font></option>
+                  {{/data}}
+            </select>
+             <button type="button" class="btn btn-info" onclick="javscript:get_subcategory_list_on_iteminfo();return false;">
+                        <font size="1">Get subcategories</font>
+            </button> 
+            </td></tr>
+            <tr> <td>
+            <div id="sub_category_list"> </div>
+            </td></tr>
+            
+            <tr> <td>
+            <div id="info_type_action"> </div>
+            </td></tr>
+
+            <tr> <td>
+            <div id="item_action"> </div>
+            </td></tr>
+ 
+
+            
+            </table>
+          </div>
+        </nav>
+        <nav role="main" class="col-md-8 ml-sm-auto col-lg-10 pt-3 px-4">
+        <div class="container">
+            <div class="row">
+                  <div class="col">
+                  <div id="disp1"></div>
+                  </div>
+                  <div class="col">
+                  <div id="disp2"></div>
+                  </div>
+                  <div class="col">
+                  <div id="disp3"></div>
+                  </div>
+            </div>  
+       </div> 
+            
+        </nav>
+      </div>
+    </div>

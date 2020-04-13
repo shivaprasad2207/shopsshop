@@ -1,0 +1,14 @@
+   <span> <font size="2">Adding Item </font> <font color="blue"> <b>{{item_type}} </b></font></span>
+   <form class="navbar-form" id="iteminfo_add_form">
+    <div class="form-group"><input type="text" class="form-control" placeholder="Enter Item Name" name="item_name" id="item_name"></div>
+    <div class="form-group"><input type="text" class="form-control" placeholder="Enter Item Price" name="item_unit_price" id="item_unit_price"></div>
+    <div class="form-group"><input type="text" class="form-control" placeholder="Enter Item Unit Price" name="item_unit" id="item_unit"></div>
+    <div class="form-group"><input type="text" class="form-control" placeholder="Enter minimum qty to buy" name="item_minimum_qty" id="item_minimum_qty"></div>
+    <div class="form-group"><input type="text" class="form-control" placeholder="Enter item_info_1" name="item_info_1" id="item_info_1"></div>
+    <div class="form-group"><input type="text" class="form-control" placeholder="Enter item_info_2" name="item_info_2" id="item_info_2"></div>
+    <div class="form-group"><input type="text" class="form-control" placeholder="Enter item_info_3" name="item_info_3" id="item_info_3"></div>
+    <div class="form-group"><input type="text" class="form-control" placeholder="Enter item_info_4" name="item_info_4" id="item_info_4"></div>
+    <div class="form-group"><input type="text" class="form-control" placeholder="Enter item_info_5" name="item_info_5" id="item_info_5"></div>
+    
+     <button type="submit" class="btn btn-primary" onclick="javascript:add_new_item('{{data}}');return false;">Add</button>
+    </form>

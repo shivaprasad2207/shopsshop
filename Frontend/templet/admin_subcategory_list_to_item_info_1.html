@@ -1,0 +1,10 @@
+<label for="sel1"><font size="1">Subcategory List of {{category}}</font></label>
+<select class="form-control" id="subcategory_select">  
+      <option selected>  </option>
+      {{#data}}
+      <option value="{{sub_category_id}}_{{link}}_{{sub_category}}"><font size="1">{{sub_category}}</font></option>
+      {{/data}}
+</select>
+<button type="button" class="btn btn-info" onclick="javscript:get_iteminfo_landing_page();return false;">
+                        <font size="1">Select Subcategory</font>
+</button> 

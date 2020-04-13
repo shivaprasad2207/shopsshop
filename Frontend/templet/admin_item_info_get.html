@@ -1,0 +1,21 @@
+   
+<table class="table-bordered table-hover" style="{float:top}">
+    <tr> <td><label><font size="2">Item Name </font></label></td><td><label><font size="2">{{item_name}}</font></label></td> </tr>
+    <tr> <td><label><font size="2">Item Price </font></label></td><td><label><font size="2">{{item_unit_price}}</font></label></td> </tr>
+    <tr> <td><label><font size="2">Item unit Qty </font></label></td><td><label><font size="2">{{item_minimum_qty}}</font></label></td> </tr>
+    <tr> <td><label><font size="2">Item Unit </font></label></td><td><label><font size="2">{{item_unit}}</font></label></td> </tr>
+    <tr> <td><label><font size="2">Item Info -1 </font></label></td><td><label><font size="2">{{item_info_1}}</font></label></td> </tr>
+    <tr> <td><label><font size="2">Item Info -2 </font></label></td><td><label><font size="2">{{item_info_2}}</font></label></td> </tr>
+    <tr> <td><label><font size="2">Item Info -3 </font></label></td><td><label><font size="2">{{item_info_3}}</font></label></td> </tr>
+    <tr> <td><label><font size="2">Item Info -4 </font></label></td><td><label><font size="2">{{item_info_4}}</font></label></td> </tr>
+    <tr> <td><label><font size="2">Item Image</font></label></td><td>
+                                                       <img class="card-img-top" style="width:180px;height:200px;" src="/static/images/shopsshps/{{item_image}}.jpg" alt="Card image cap">
+                                                           </td> </tr>
+    <tr> <td colspan="2">
+          <button type="button" class="btn btn-warning" onclick="javascript:get_item_modify_form('/itemtype/{{item_types_id}}/iteminfo/{{item_info_id}}/');return false;"><font size="2"> Modify </font></button>
+          <button type="button" class="btn btn-danger" onclick="javascript:del_item('/itemtype/{{item_types_id}}/iteminfo/{{item_info_id}}/');return false;"><font size="2"> Delete </font></button>
+          <button type="button" class="btn btn-info" onclick="javascript:upload_item_image('/itemtype/{{item_types_id}}/iteminfo/{{item_info_id}}/');return false;"><font size="2"> Image upload </font></button>
+      
+    </td>
+    </tr>
+</table>

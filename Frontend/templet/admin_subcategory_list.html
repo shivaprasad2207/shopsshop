@@ -1,0 +1,24 @@
+<table>
+        {{#data}}
+        <tr>
+        <td>
+            <font size="1">{{sub_category}}</font> 
+        </td>
+        <td>
+            <div class="btn-group">
+                <button type="button" class="btn btn-info"><font size="1">Actions</font></button>
+                    <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown">
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu">              
+                        <li><a href="#" onclick="javascript:get_subcategory_modify_form('{{category_id}}','{{sub_category_id}}','{{link}}',);return false;"><font color="green" size="2">Modify</font></a></li>
+                        <li><a href="#" onclick="javascript:del_subcategory('{{category_id}}','{{sub_category_id}}','{{link}}');return false;"><font color="red" size="2">Delete</font></a></li>
+    
+                    </ul>
+            </div>
+        </td>
+        </tr>
+        {{/data}}
+</table>
+<br> <br>
+<button type="button" class="btn btn-primary " onclick="javascript:get_subcategory_add_form('{{category_id}}');return false;">Add Subcategory </button>

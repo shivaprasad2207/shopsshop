@@ -1,0 +1,10 @@
+<label for="sel1"><font size="1">Item type List of {{subcategory}}</font></label>
+<select class="form-control" id="itemtype_select">  
+      <option selected>  </option>
+      {{#data}}
+      <option value="{{sub_category_id}}_{{item_types_id}}_/itemtype/{{item_types_id}}/iteminfo/_{{item_types}}"><font size="1">{{item_types}}</font></option>
+      {{/data}}
+</select>
+<button type="button" class="btn btn-info" onclick="javscript:get_itemtype_list_landing_page();return false;">
+                        <font size="1">Select Itemtype</font>
+</button> 

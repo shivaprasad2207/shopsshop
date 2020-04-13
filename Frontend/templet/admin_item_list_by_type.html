@@ -1,0 +1,14 @@
+<table class="table-bordered table-hover">
+    
+        {{#data}}
+        <tr>
+        <td>
+            <span><a href="#" onclick="javascript:get_item_info_form('/itemtype/{{item_types_id}}/iteminfo/{{item_info_id}}/');return false;">{{item_name}}</a></span>
+        </td>
+        <td>
+            <button type="button" class="btn btn-success" onclick="javascript:get_item_info_form('/itemtype/{{item_types_id}}/iteminfo/{{item_info_id}}/');return false;"><font size="2"> Get </font></button>
+        </td>
+        </tr>
+        {{/data}}
+    
+</table>

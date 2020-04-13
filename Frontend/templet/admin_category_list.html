@@ -1,0 +1,24 @@
+<table>
+    
+        {{#data}}
+        <tr>
+        <td>
+            <span>{{category}} </span>
+        </td>
+        <td>
+            <div class="btn-group">
+                <button type="button" class="btn btn-info"><font size="2"> Actions </font></button>
+                    <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown">
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu">              
+                        <li><a href="#" onclick="javascript:get_category_modify_form('{{category_id}}','{{link}}');return false;"><font color="green" size="2"><b>Modify</b></font></a></li>
+                        <li><a href="#" onclick="javascript:del_category('{{category_id}}','{{link}}');return false;"><font color="red" size="2"><b>Delete</b></font></a></li>
+    
+                    </ul>
+            </div>
+        </td>
+        </tr>
+        {{/data}}
+    
+</table>
