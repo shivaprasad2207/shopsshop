@@ -1,27 +1,62 @@
 var root_url = 'http://127.0.0.1:8000';
-var admin_page = 'http://localhost/cgi-bin/admin.py'; 
 var main_page = 'http://localhost/cgi-bin/admin_login.py';
 
 $(document).ready(function(){
-         var shop_id = get_shop_id();       
-         var url = root_url+'/shop/'+shop_id+'/' ;
-         $.get(url,function(data){        
-                $.get('/templet/admin_navBar.html',function(info){
-                        var output = Mustache.render(info,data);
-                        $("#diva1").html(output);
-                });
-            },
-            "json"
-        );  
-                          
-
+      $.get('/templet/login_page.html',function(info){
+                        $("#login_page").html(info);
+      });
+      body_onload_trigger();
 });
+
+function body_onload_trigger (){
+                c = get_cookies();
+                if (c["__BROWSER_SHOP_SESSION___"] == "ON" ){
+                     admin_page_load();                
+                }
+}
+
+function admin_login(){
+                var email = $("#inputEmail").val() ; 
+                var password = $("#inputPassword").val(); 
+                $.ajax({
+                        url: root_url + '/shop-login?shop_email=' + email + '&shop_password=' + password,
+                        type: 'GET',
+                        crossDomain: true,
+                        success: function(data, status, xhr) {
+                                        document.cookie = "__C__shop_id="+String(data['shop_id']) + " ;" ;
+                                        document.cookie = "__C__shop_token="+data['shop_token'] + " ;" ;
+                                        document.cookie = "__BROWSER_SHOP_SESSION___=ON" ;
+                                        admin_page_load();
+                                },
+                        error: function(xhr, timeout, message) {
+                                alert('failed');
+                        }
+                });
+}
+
+function admin_page_load(){
+         $.get('/templet/admin_landing_page.html',function(info){
+                        $("#login_page").html(info);
+          
+                        var shop_id = get_shop_id();       
+                        var url = root_url+'/shop/'+shop_id+'/' ;
+                        $.get(url,function(data){        
+                                $.get('/templet/admin_navBar.html',function(info){
+                                                var output = Mustache.render(info,data);
+                                                $("#diva1").html(output);
+                                });
+                        },
+                         "json"
+                        );
+      });
+     
+}
 
 function logout(){
     document.cookie = "__C__shop_id= ; expires = Thu, 01 Jan 1970 00:00:00 GMT";
+    document.cookie = "__BROWSER_SHOP_SESSION___= ; expires = Thu, 01 Jan 1970 00:00:00 GMT";
     window.location.href= main_page;
 }
-
 
 
 function get_cookies(){
@@ -40,23 +75,6 @@ function get_shop_id(){
                 return c[shop_id_ck_name];
 }
 
-function admin_login(){
-                var email = $("#inputEmail").val() ; 
-                var password = $("#inputPassword").val(); 
-                $.ajax({
-                        url: root_url + '/shop-login?shop_email=' + email + '&shop_password=' + password,
-                        type: 'GET',
-                        crossDomain: true,
-                        success: function(data, status, xhr) {
-                                        document.cookie = "__C__shop_id="+String(data['shop_id']) + " ;" ;
-                                        document.cookie = "__C__shop_token="+data['shop_token'] + " ;" ;
-                                        window.location.href = admin_page;
-                                },
-                        error: function(xhr, timeout, message) {
-                                alert('failed');
-                        }
-                });
-}
 
 function get_settings_menu(){
         var menu = {

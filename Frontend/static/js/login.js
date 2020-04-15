@@ -1,7 +1,5 @@
 var root_url = 'http://127.0.0.1:8000';
-var admin_page = 'http://localhost/cgi-bin/admin.py';
 var main_page = 'http://localhost/cgi-bin/admin_login.py';
-var usr_page = 'http://localhost/cgi-bin/gg.py';
 
 function get_user_login_form( ){
     var link = root_url+'/shops/';
@@ -35,7 +33,7 @@ function user_login(){
                         success: function(data, status, xhr) {
                                         document.cookie = "__C__shop_id="+String(data['shop_id']) + " ;" ;
                                         document.cookie = "__C__shop_token="+data['shop_token'] + " ;" ;
-                                        window.location.href = usr_page;
+                                        get_user_page_divs();
                                 },
                         error: function(xhr, timeout, message) {
                                 alert('failed');
@@ -43,6 +41,22 @@ function user_login(){
                 });
 }
 
+
+function get_user_page_divs(){
+    $.get('/templet/user_page_divs.html',function(info){                    
+                        document.getElementById('login_page').innerHTML = info;
+                        var shop_id = get_shop_id();       
+                        var url = root_url+'/shop/'+shop_id+'/' ;
+                        $.get(url,function(data){        
+                                $.get('/templet/navBar.html',function(info){
+                                                var output = Mustache.render(info,data);
+                                                $("#div1").html(output);
+                                });
+                        },
+                         "json"
+                        );
+    });   
+}
 
 function get_admin_login_form(link){
     $.get('/templet/admin_store_login.html',function(info){                    

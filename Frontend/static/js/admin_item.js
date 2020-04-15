@@ -10,7 +10,7 @@ function get_subcategory_list_on_iteminfo(){
                                 $.get('/templet/admin_subcategory_list_to_item_info_1.html',function(info){  
                                       var link = root_url + '/shop/' + shop_id + '/category/' + category_id + '/';           
                                       $.get(link,function(data1){           
-                                                d = {...data1,...data}
+                                                d = {...data1, ...data };
                                                 var output = Mustache.render(info,d);
                                                 document.getElementById('item_action').innerHTML = '';  
                                                 document.getElementById('info_type_action').innerHTML = '';                                                 
@@ -74,7 +74,8 @@ function get_item_list_form(d){
                                                 $.get('/templet/admin_item_list_by_type.html',function(info){                    
                                                                 var output = Mustache.render(info,data);
                                                                 document.getElementById('disp1').innerHTML = output;
-                                                                document.getElementById('disp2').innerHTML = ''; 
+                                                                document.getElementById('disp2').innerHTML = '';
+                                                                document.getElementById('disp3').innerHTML = '';
                                                 });
                                 },
                                 "json"
@@ -90,7 +91,8 @@ function get_item_add_form (d){
     };
     $.get('/templet/admin_item_info_add_form.html',function(info){                    
                                                                 var output = Mustache.render(info,data);
-                                                                document.getElementById('disp2').innerHTML = '';    
+                                                                document.getElementById('disp2').innerHTML = '';
+                                                                document.getElementById('disp3').innerHTML = '';
                                                                 document.getElementById('disp1').innerHTML = output;               
                                             });
 }
@@ -118,7 +120,8 @@ function get_item_info_form(link){
         $.get(root_url+link,function(data){
                                                 $.get('/templet/admin_item_info_get.html',function(info){                    
                                                                 var output = Mustache.render(info,data);
-                                                                document.getElementById('disp2').innerHTML = output;               
+                                                                document.getElementById('disp2').innerHTML = output;
+                                                                document.getElementById('disp3').innerHTML = ''; 
                                                 });
                                 },
                                 "json"
@@ -129,7 +132,8 @@ function get_item_modify_form(link){
     $.get(root_url+link,function(data){
                                                 $.get('/templet/admin_item_modify_form.html',function(info){                    
                                                                 var output = Mustache.render(info,data);
-                                                                document.getElementById('disp2').innerHTML = output;               
+                                                                document.getElementById('disp2').innerHTML = output;
+                                                                document.getElementById('disp3').innerHTML = '';    
                                                 });
                                 },
                                 "json"

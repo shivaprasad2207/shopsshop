@@ -1,16 +1,11 @@
 var root_url = 'http://127.0.0.1:8000'
 
-$(document).ready(function(){
-                $.get('/templet/navBar.html',function(info){
-                        $("#div1").html(info);
-                });
-});
-
-
 function show_category(){
+        var shop_id = get_shop_id();
+        var url = root_url + '/shop-menu/' + shop_id  +  '/';
         $.get('/templet/drop_down.html',function(info){
                 $.ajax({
-                        url: root_url + '/shop-menu/1/',
+                        url: url,
                         type: 'GET',
                         crossDomain: true,
                         success: function(data) {
