@@ -1,5 +1,6 @@
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-  <font size="4" color="orange"> |My Shop|</font>
+ <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+ <font size="4" color="orange">{{shop_desc}} |<font size="1">Ph:{{shop_phone_1}} &nbsp Email:{{shop_email}}</font>
+ </font>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -17,12 +18,20 @@
       <li class="nav-item">
         <a class="nav-link" href="#"><b><font color="blue">Contacts</font></b></a>
       </li> 
-    </ul>
-    <form class="navbar-form navbar-left" 
+     <li>
+      <form class="navbar-form navbar-right" 
     <div class="form-group">
         <input type="text" class="form-control" placeholder="Search" name="search">
       </div>
       <button type="submit" class="btn btn-primary">Submit</button>
     </form>
+      
+     </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#" onclick="javascript:logout();return false;"><b><font color="blue">Logout</font></b></a>
+      </li> 
+    
+    </ul>
+    
   </div>  
 </nav>

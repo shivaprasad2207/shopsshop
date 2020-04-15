@@ -22,6 +22,10 @@ class Shop(Shop.Shop):
     pass
 
 
+class UsrAuth(Usr.UsrAuth):
+    pass
+
+
 class UsrRegister(Usr.UsrRegister):
     pass
 
@@ -60,4 +64,3 @@ class ItemInfo(items.ItemInfoView):
 
 class Item(items.ItemInfoListView):
     pass
-

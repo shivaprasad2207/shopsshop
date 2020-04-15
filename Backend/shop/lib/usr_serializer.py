@@ -28,7 +28,7 @@ class UserRegisterSerializer(serializers.ModelSerializer):
 class UsrSerializer(serializers.ModelSerializer):
     class Meta:
         model = UsrInfo
-        fields = ('usr_email', 'usr_f_name', 'usr_l_name', 'usr_phone', 'usr_address', 'usr_id')
+        fields = ('usr_email', 'usr_f_name', 'usr_l_name', 'usr_phone', 'usr_address', 'usr_id', 'shop_id')
 
 
 class UsrPutSerializer(serializers.ModelSerializer):

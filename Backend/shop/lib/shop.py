@@ -7,9 +7,26 @@ from rest_framework import status
 from django.utils.crypto import get_random_string
 from django.http.response import HttpResponse
 from ..models import ShopInfo, CategoryTable, SubCategoryTable
-from .shop_serializer import ShopRegisterSerializer, ShopLoginSerializer, ShopSerializer, ShopPutSerializer
+from .shop_serializer import ShopRegisterSerializer, ShopLoginSerializer, ShopSerializer, ShopPutSerializer, \
+    shop_get_serializer
 import hashlib
 
+class Utilities():
+    @classmethod
+    def to_normal_dict1(cls,my_dict):
+        my_ret_dict = {}
+        for k , v in dict(my_dict).items():
+            if v:
+                my_ret_dict[k] = v
+        return my_ret_dict
+
+    @classmethod
+    def to_normal_dict(cls, my_dict):
+        my_ret_dict = {}
+        for k, v in dict(my_dict).items():
+            if v:
+                my_ret_dict[k] = v[0]
+        return my_ret_dict
 
 class Menu(APIView):
     """
@@ -47,9 +64,10 @@ class ShopRegister(APIView):
     """
 
     def post(self, request, format=None):
-        data = request.data
+        passwd = hashlib.md5(request.data['shop_password'].encode('utf-8')).hexdigest()
+        data = Utilities.to_normal_dict(request.data)
         data['shop_token'] = self.getOrCreateToken()
-        data['shop_password'] = hashlib.md5(data['shop_password'].encode('utf-8')).hexdigest()
+        data['shop_password'] = passwd
         serializer = ShopRegisterSerializer(data=data)
         if serializer.is_valid():
             serializer.save()
@@ -60,6 +78,10 @@ class ShopRegister(APIView):
 
     def getOrCreateToken(self):
         return get_random_string(length=6).upper()
+
+    def get(self, request, format=None):
+        serializer = shop_get_serializer()
+        return Response(serializer)
 
 
 class ShopLogin(APIView):

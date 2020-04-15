@@ -69,3 +69,20 @@ class ShopPutSerializer(serializers.ModelSerializer):
         instance.shop_phone_2 = validated_data.get('shop_phone_2', instance.shop_phone_2)
         instance.save()
         return instance
+
+
+def shop_get_serializer():
+    info = []
+    for shop in ShopInfo.objects.filter(is_active=1):
+        shop_info = {
+            'shop_desc': shop.shop_desc,
+            'shop_address': shop.shop_address,
+            'shop_email': shop.shop_email,
+            'shop_phone_1': shop.shop_phone_1,
+            'shop_phone_2': shop.shop_phone_2,
+            'shop_id': shop.shop_id,
+            'shop_token': shop.shop_token
+
+        }
+        info.append(shop_info)
+    return {'data': info}

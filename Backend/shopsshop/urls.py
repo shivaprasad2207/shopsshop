@@ -20,10 +20,12 @@ from shop import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('new-shop/', views.ShopRegister.as_view()),
+    path('shops/', views.ShopRegister.as_view()),
     path('shop-login', views.ShopLogin.as_view()),
     path('shop/<int:pk>/', views.Shop.as_view()),
     path('shop-menu/<int:pk>/', views.ShopMenu.as_view()),
     path('usr-login/', views.UsrRegister.as_view()),
+    path('usr-auth', views.UsrAuth.as_view()),
     path('usr/<int:pk>/', views.Usr.as_view()),
     path('shop/<int:shop_id>/category/', views.Categories.as_view()),
     path('shop/<int:shop_id>/category/<int:category_id>/', views.Category.as_view()),

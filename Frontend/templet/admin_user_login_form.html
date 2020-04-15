@@ -1,0 +1,29 @@
+<table>
+
+<tr>    
+    <td>
+    <form class="form-signin" id="user_login_form">
+            <div class="form-label-group">    
+            <label for="sel1"><font size="3">Select Shop</font></label>
+               <select class="form-control" id="shop_token" name="shop_token" >  
+                  <option selected>  </option>
+                  {{#data}}
+                  <option value="{{shop_token}}"><font size="1">{{shop_desc}}</font></option>
+                  {{/data}}
+            </select>   
+            </div>
+            
+              <div class="form-label-group">
+                <input type="text" id="usr_email" name="usr_email" placeholder="Enter Email" required autofocus>
+              </div>
+              
+              <div class="form-label-group">
+                <input type="password" id="usr_password"  name="usr_password" placeholder="Password" required>
+              </div> 
+              
+              <a class="btn btn-lg btn-primary text-uppercase" onclick="javascript:user_login();return false;" >Login</a>
+        
+</form>  
+    <td>
+</tr>
+</table>

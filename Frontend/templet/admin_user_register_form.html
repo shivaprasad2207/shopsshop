@@ -1,0 +1,45 @@
+<table>
+
+<tr>    
+    <td>
+    <form class="form-signin" id="user_reg_form">
+            <div class="form-label-group">    
+            <label for="sel1"><font size="3">Select Shop</font></label>
+               <select class="form-control" id="shop_token" name="shop_token" >  
+                  <option selected>  </option>
+                  {{#data}}
+                  <option value="{{shop_token}}"><font size="1">{{shop_desc}}</font></option>
+                  {{/data}}
+            </select>   
+            </div>
+            
+              <div class="form-label-group">
+                <input type="text" id="usr_email" name="usr_email" placeholder="Enter Email" required autofocus>
+              </div>
+              
+              <div class="form-label-group">
+                <input type="text" id="usr_f_name" name="usr_f_name" placeholder="Enter First Name " required autofocus>
+              </div>
+                            
+              <div class="form-label-group">
+                <input type="text" id="usr_l_name" name="usr_l_name" placeholder="Enter Second Name" required autofocus>
+              </div>
+              
+              <div class="form-label-group">
+                <input type="text" id="usr_phone" name="usr_phone" placeholder="Enter Phone " required autofocus>
+              </div>
+              
+              <div class="form-label-group">
+                <input type="text" id="usr_address" name="usr_address" placeholder="Enter Address " required autofocus>
+              </div>
+
+              <div class="form-label-group">
+                <input type="password" id="usr_password"  name="usr_password" placeholder="Password" required>
+              </div> 
+              
+              <a class="btn btn-lg btn-primary text-uppercase" onclick="javascript:user_register();return false;" >Register User</a>
+        
+</form>  
+    <td>
+</tr>
+</table>

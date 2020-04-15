@@ -1,11 +1,27 @@
 var root_url = 'http://127.0.0.1:8000';
 var admin_page = 'http://localhost/cgi-bin/admin.py'; 
+var main_page = 'http://localhost/cgi-bin/admin_login.py';
 
 $(document).ready(function(){
+         var shop_id = get_shop_id();       
+         var url = root_url+'/shop/'+shop_id+'/' ;
+         $.get(url,function(data){        
                 $.get('/templet/admin_navBar.html',function(info){
-                        $("#diva1").html(info);
+                        var output = Mustache.render(info,data);
+                        $("#diva1").html(output);
                 });
+            },
+            "json"
+        );  
+                          
+
 });
+
+function logout(){
+    document.cookie = "__C__shop_id= ; expires = Thu, 01 Jan 1970 00:00:00 GMT";
+    window.location.href= main_page;
+}
+
 
 
 function get_cookies(){
@@ -24,7 +40,7 @@ function get_shop_id(){
                 return c[shop_id_ck_name];
 }
 
-function admin_signin(){
+function admin_login(){
                 var email = $("#inputEmail").val() ; 
                 var password = $("#inputPassword").val(); 
                 $.ajax({
@@ -322,9 +338,6 @@ function modify_item_type(link){
                                 get_itemtype_landing_page();
                 });
 }
-
-
-
 
 function del_itemtype(d){
                 var infos = d.split('_');

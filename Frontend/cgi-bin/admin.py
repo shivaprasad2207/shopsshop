@@ -20,6 +20,7 @@ s = """
   <script src="/static/js/dispatch.js"></script>
   <script src="/static/js/admin.js"></script>
   <script src="/static/js/admin_item.js"></script>
+  <script src="/static/js/login.js"></script>
 </head>
 <body>
 

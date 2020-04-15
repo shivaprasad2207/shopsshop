@@ -17,6 +17,8 @@ s = """
   <script src="/static/js/jquery.min.js"></script>
   <script src="/static/js/popper.js"></script>
   <script src="/static/js/bootstrap.js"></script>
+  <script src="/static/js/admin.js"></script>
+  <script src="/static/js/login.js"></script>
 </head>
 <body>
 

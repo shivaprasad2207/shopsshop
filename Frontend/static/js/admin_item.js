@@ -102,7 +102,6 @@ function add_new_item (d){
     var data = {};
     var sts = d.split('_');
     var link = sts[2];
-    
     for (var i = 0 ; i < infos.length; i++){
         var tkv = infos[i];
         var kvs = tkv.split('=');
@@ -191,7 +190,6 @@ function upload_item_image(link){
                                     document.getElementById('disp3').innerHTML = info;               
     });
 }
-
 
 function upload(file, item_types_id){
     var redir = 'null_'+'null_'+ '/itemtype/' + item_types_id + '/iteminfo/';
